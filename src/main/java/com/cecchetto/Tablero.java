@@ -105,7 +105,19 @@ public class Tablero extends JPanel{
     }
 
     private void perder() {
-        System.out.println("perdiste mi rey");
+        cuadraditos.forEach( obj -> obj.forEach( obj1 -> {
+            if (obj1.isMina())
+                obj1.getButton().setBackground(Color.BLACK);
+        }));
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        JOptionPane.showMessageDialog(null, "perdiste pa");
+        System.exit(0);
     }
 
 

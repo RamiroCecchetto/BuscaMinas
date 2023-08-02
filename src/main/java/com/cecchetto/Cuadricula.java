@@ -1,6 +1,7 @@
 package com.cecchetto;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -13,6 +14,8 @@ public class Cuadricula {
     public Cuadricula() {
         btn = new JButton();
         btn.setPreferredSize(new Dimension(50, 50));
+        btn.setBackground(Color.WHITE);
+        btn.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         imgBomba = Util.getImage("mina.png");
         mina = false;
