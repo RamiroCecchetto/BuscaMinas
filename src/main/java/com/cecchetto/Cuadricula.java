@@ -8,7 +8,7 @@ public class Cuadricula {
 
     JButton btn;
     BufferedImage imgBomba;
-    Boolean mina;
+    Boolean mina, tocada = false;
     Integer num = 0;
     public Cuadricula() {
         btn = new JButton();
@@ -16,10 +16,31 @@ public class Cuadricula {
 
         imgBomba = Util.getImage("mina.png");
         mina = false;
+        btn.addActionListener( e -> action() );
+    }
+
+    public void action() {
+
+        tocada = true;
+        btn.setEnabled(false);
+
+        if (mina)
+            btn.setBackground(Color.BLACK);
+        else
+            btn.setText(Integer.toString(num));
+
+    }
+
+    public Boolean isTocada() {
+        return tocada;
     }
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public int getNum() {
+        return num;
     }
 
     public Boolean isMina() {
@@ -27,9 +48,9 @@ public class Cuadricula {
     }
 
     public void setMina() {
-        btn.setBackground(Color.BLACK);
         mina = true;
     }
+
     public JButton getButton () {
         return btn;
     }

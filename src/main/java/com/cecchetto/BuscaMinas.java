@@ -7,18 +7,22 @@ public class BuscaMinas extends JFrame {
 
     Dimension dimension;
     public BuscaMinas() {
-        dimension = elegirTamanio();
-
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
 
+        dimension = elegirTamanio();
+
         Tablero tablero = new Tablero(dimension);
         this.add(tablero);
-        tablero.jugar();
+
+        tablero.asugnasMinas();
+        tablero.asignarNumeros();
 
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+
+        tablero.jugar();
     }
 
     private Dimension elegirTamanio() {
